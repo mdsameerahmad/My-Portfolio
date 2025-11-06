@@ -76,7 +76,7 @@ export function Contact() {
             </span>
           </h1>
           <p className="text-[#B3B3B3] max-w-2xl mx-auto" style={{ fontSize: "1.25rem", lineHeight: "1.6" }}>
-            Have a project in mind? Let's discuss how we can work together
+            Have a project in mind? Let's discuss how we can work together..
           </p>
         </motion.div>
 
