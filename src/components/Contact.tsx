@@ -1,11 +1,11 @@
+import { Send } from "lucide-react";
 import { motion } from "motion/react";
+import { useState } from "react";
+import { toast } from "sonner@2.0.3";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
-import { Textarea } from "./ui/textarea";
 import { Label } from "./ui/label";
-import { useState } from "react";
-import { Send } from "lucide-react";
-import { toast } from "sonner@2.0.3";
+import { Textarea } from "./ui/textarea";
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -19,10 +19,18 @@ export function Contact() {
     e.preventDefault();
     
     // Create WhatsApp message
-    const whatsappMessage = `*New Contact Form Submission*%0A%0A*Name:* ${formData.name}%0A*Email:* ${formData.email}%0A*Subject:* ${formData.subject}%0A*Message:* ${formData.message}`;
+    const whatsappMessage = `🌟 New Contact Form Submission 🌟
+━━━━━━━━━━━━━━━━━━
+👤 Name: ${formData.name}
+📧 Email: ${formData.email}
+📝 Subject: ${formData.subject}
+💬 Message:
+${formData.message}
+━━━━━━━━━━━━━━━━━━
+📅 Sent via your website contact form`;
     
     // WhatsApp URL with your number
-    const whatsappURL = `https://wa.me/919155649575?text=${whatsappMessage}`;
+    const whatsappURL = `https://wa.me/919155649575?text=${encodeURIComponent(whatsappMessage)}`;
     
     // Open WhatsApp in new tab
     window.open(whatsappURL, '_blank');

@@ -96,7 +96,7 @@ export function Navbar() {
             
             {/* Hire Me Button */}
             <motion.a
-              href="https://wa.me/919155649575?text=Hi%2C%20I%27d%20like%20to%20hire%20you%20for%20a%20project"
+              href="https://wa.me/919155649575?text=Hi%2C%20I%20came%20across%20your%20portfolio%20and%20I%27m%20impressed%20with%20your%20work.%20I%20would%20love%20to%20collaborate%20and%20discuss%20a%20project%20with%20you."
               target="_blank"
               rel="noopener noreferrer"
               initial={{ opacity: 0, y: -20 }}
@@ -141,7 +141,7 @@ export function Navbar() {
             
             {/* Mobile Hire Me Button */}
             <a
-              href="https://wa.me/919155649575?text=Hi%2C%20I%27d%20like%20to%20hire%20you%20for%20a%20project"
+              href="https://wa.me/919155649575?text=Hi%2C%20I%20came%20across%20your%20portfolio%20and%20I%27m%20impressed%20with%20your%20work.%20I%20would%20love%20to%20collaborate%20and%20discuss%20a%20project%20with%20you."
               target="_blank"
               rel="noopener noreferrer"
               className="block w-full px-4 py-3 bg-[#FF6A00] hover:bg-[#FF8C3A] text-white rounded-lg transition-colors text-center"
