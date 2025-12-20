@@ -1,11 +1,11 @@
-import { motion } from "motion/react";
 import { ExternalLink, Github } from "lucide-react";
+import { motion } from "motion/react";
 
+import chatBotImg from "@/assets/ChatBot.png";
 import ecommImg from "@/assets/Ecomm.png";
-import referImg from "@/assets/refer.png";
 import madarsaImg from "@/assets/madarsa.png";
 import mlmImg from "@/assets/mlm.png";
-import chatBotImg from "@/assets/ChatBot.png";
+import referImg from "@/assets/refer.png";
 import weatherImg from "@/assets/weather.png";
 
 export function PortfolioGrid() {
@@ -95,7 +95,7 @@ export function PortfolioGrid() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="group cursor-pointer"
+              className=""
             >
               <div className="relative overflow-hidden rounded-2xl bg-[#1A1A1A] shadow-2xl">
 
@@ -104,12 +104,12 @@ export function PortfolioGrid() {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-700"
                   />
                 </div>
 
                 {/* Overlay on hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent transition-opacity duration-500 flex flex-col justify-end p-6">
                   <p className="text-[#FF6A00] mb-2" style={{ fontSize: "0.875rem", fontWeight: "600", letterSpacing: "0.05em", textTransform: "uppercase" }}>
                     {project.category}
                   </p>
