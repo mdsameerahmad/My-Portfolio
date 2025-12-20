@@ -1,6 +1,7 @@
 import { ExternalLink, Github } from "lucide-react";
 import { motion } from "motion/react";
 
+import bgImg from "@/assets/bg.png";
 import chatBotImg from "@/assets/chatbot.png";
 import ecommImg from "@/assets/ecomm.png";
 import madarsaImg from "@/assets/madarsa.png";
@@ -16,7 +17,7 @@ export function PortfolioGrid() {
       category: "AI-Integrated Multi-Vendor E-Commerce App",
       image: ecommImg,
       websiteLink: "https://github.com/mdsameerahmad/E-commerce-App/tree/main",
-      githubLink: "https://github.com/mdsameerahmad/E-commerce-App/tree/main"
+      githubLink: "https://github.com/mdsameerahmad/E-commerce-App/tree/main",
     },
     {
       id: 2,
@@ -24,7 +25,7 @@ export function PortfolioGrid() {
       category: "Referral & Rewards Web App",
       image: referImg,
       websiteLink: "https://gramflix.in/",
-      githubLink: "https://github.com/mdsadiqueshakeel/gramflix/tree/master"
+      githubLink: "https://github.com/mdsadiqueshakeel/gramflix/tree/master",
     },
     {
       id: 3,
@@ -32,7 +33,7 @@ export function PortfolioGrid() {
       category: "Organizational Portfolio Website",
       image: madarsaImg,
       websiteLink: "https://www.madarsaarabia.in/",
-      githubLink: "https://github.com/mdsameerahmad/MADARSA-ARABIA"
+      githubLink: "https://github.com/mdsameerahmad/MADARSA-ARABIA",
     },
     {
       id: 4,
@@ -40,30 +41,30 @@ export function PortfolioGrid() {
       category: "Full-Stack Multi-Level Marketing (MLM) Web Platform",
       image: mlmImg,
       websiteLink: "https://growthaffinitymarketing.com/",
-      githubLink: "https://github.com/mdsadiqueshakeel/MLM-System"
+      githubLink: "https://github.com/mdsadiqueshakeel/MLM-System",
     },
     {
       id: 5,
-      title: "Java X Twillio",
+      title: "Java X Twilio",
       category: "WhatsApp Chatbot",
       image: chatBotImg,
       websiteLink: "https://github.com/mdsameerahmad/ChatBot",
-      githubLink: "https://github.com/mdsameerahmad/ChatBot"
+      githubLink: "https://github.com/mdsameerahmad/ChatBot",
     },
     {
       id: 6,
-      title: "Flutter X External Api",
+      title: "Flutter X External API",
       category: "Weather App",
       image: weatherImg,
       websiteLink: "https://github.com/mdsameerahmad/Weather_App",
-      githubLink: "https://github.com/mdsameerahmad/Weather_App"
-    }
+      githubLink: "https://github.com/mdsameerahmad/Weather_App",
+    },
   ];
 
   return (
-    <div 
+    <div
       className="w-full py-24 pt-32 bg-black bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('/src/assets/bg.png')" }}
+      style={{ backgroundImage: `url(${bgImg})` }}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
 
@@ -77,11 +78,19 @@ export function PortfolioGrid() {
         >
           <h2
             className="text-white mb-4"
-            style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", lineHeight: "1.2", fontWeight: "700", letterSpacing: "-0.02em" }}
+            style={{
+              fontSize: "clamp(2.5rem, 5vw, 4rem)",
+              lineHeight: "1.2",
+              fontWeight: "700",
+              letterSpacing: "-0.02em",
+            }}
           >
             Project Works
           </h2>
-          <p className="text-[#B3B3B3]" style={{ fontSize: "1.25rem", lineHeight: "1.6" }}>
+          <p
+            className="text-[#B3B3B3]"
+            style={{ fontSize: "1.25rem", lineHeight: "1.6" }}
+          >
             A curated collection of projects showcasing my development skills
           </p>
         </motion.div>
@@ -95,7 +104,6 @@ export function PortfolioGrid() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className=""
             >
               <div className="relative overflow-hidden rounded-2xl bg-[#1A1A1A] shadow-2xl">
 
@@ -108,12 +116,12 @@ export function PortfolioGrid() {
                   />
                 </div>
 
-                {/* Overlay on hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent transition-opacity duration-500 flex flex-col justify-end p-6">
-                  <p className="text-[#FF6A00] mb-2" style={{ fontSize: "0.875rem", fontWeight: "600", letterSpacing: "0.05em", textTransform: "uppercase" }}>
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent flex flex-col justify-end p-6">
+                  <p className="text-[#FF6A00] mb-2 text-sm font-semibold uppercase tracking-wider">
                     {project.category}
                   </p>
-                  <h3 className="text-white mb-4" style={{ fontSize: "1.5rem", fontWeight: "700", lineHeight: "1.3" }}>
+                  <h3 className="text-white mb-4 text-xl font-bold leading-tight">
                     {project.title}
                   </h3>
 
@@ -123,9 +131,7 @@ export function PortfolioGrid() {
                       href={project.websiteLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                      className="flex items-center gap-2 px-4 py-2 bg-[#FF6A00] hover:bg-[#FF8C3A] text-white rounded-lg transition-colors"
-                      style={{ fontSize: "0.875rem", fontWeight: "600" }}
+                      className="flex items-center gap-2 px-4 py-2 bg-[#FF6A00] hover:bg-[#FF8C3A] text-white rounded-lg transition-colors text-sm font-semibold"
                     >
                       <ExternalLink size={16} />
                       Website
@@ -134,9 +140,7 @@ export function PortfolioGrid() {
                       href={project.githubLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                      className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-colors border border-white/20"
-                      style={{ fontSize: "0.875rem", fontWeight: "600" }}
+                      className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-colors border border-white/20 text-sm font-semibold"
                     >
                       <Github size={16} />
                       GitHub
