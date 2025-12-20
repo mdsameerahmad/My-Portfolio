@@ -165,14 +165,30 @@ ${formData.message}
             </div>
 
             {/* Submit Button */}
-            <Button 
-              type="submit"
-              className="w-full bg-[#FF6A00] hover:bg-[#FF8C3A] text-white border-none py-6"
-              style={{ fontSize: "1.125rem", fontWeight: "600" }}
-            >
-              <Send className="mr-2 h-5 w-5" />
-              Send Message via WhatsApp
-            </Button>
+           <Button
+  type="submit"
+  className="
+    w-full
+    bg-[#FF6A00]
+    hover:bg-[#FF8C3A]
+    text-white
+    border-none
+
+    flex items-center justify-center gap-2
+    rounded-xl
+
+    py-4 sm:py-5 md:py-6
+    text-base sm:text-lg
+
+    min-h-[52px] sm:min-h-[56px]
+  "
+>
+  <Send className="h-5 w-5 shrink-0" />
+  <span className="whitespace-nowrap">
+    Send Message via WhatsApp
+  </span>
+</Button>
+
           </form>
         </motion.div>
 
