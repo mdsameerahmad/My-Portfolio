@@ -1,7 +1,7 @@
 import { ExternalLink, Github } from "lucide-react";
 import { motion } from "motion/react";
 
-import chatBotImg from "@/assets/chatBot.png";
+import chatBotImg from "@/assets/chatbot.png";
 import ecommImg from "@/assets/ecomm.png";
 import madarsaImg from "@/assets/madarsa.png";
 import mlmImg from "@/assets/mlm.png";
