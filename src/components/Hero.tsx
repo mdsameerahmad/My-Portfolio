@@ -1,6 +1,45 @@
-import { motion, useScroll, useTransform } from "motion/react";
-import { Badge } from "./ui/badge";
 import heroImage from "figma:asset/3af4f29f5289be48b1e09dcd206f8d6811c3b883.png";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useState } from "react";
+import { Badge } from "./ui/badge";
+
+function useTypingEffect(
+  phrases: string[],
+  typingSpeed = 150,
+  deletingSpeed = 100,
+  delayBetweenPhrases = 1000
+) {
+  const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
+  const [currentText, setCurrentText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+
+    const handleTyping = () => {
+      const fullText = phrases[currentPhraseIndex];
+      if (isDeleting) {
+        setCurrentText(fullText.substring(0, currentText.length - 1));
+        if (currentText.length === 0) {
+          setIsDeleting(false);
+          setCurrentPhraseIndex((prev) => (prev + 1) % phrases.length);
+        }
+      } else {
+        setCurrentText(fullText.substring(0, currentText.length + 1));
+        if (currentText.length === fullText.length) {
+          setIsDeleting(true);
+        }
+      }
+    };
+
+    const timeout = isDeleting ? deletingSpeed : typingSpeed;
+    timer = setTimeout(handleTyping, currentText.length === phrases[currentPhraseIndex].length && !isDeleting ? delayBetweenPhrases : timeout);
+
+    return () => clearTimeout(timer);
+  }, [currentPhraseIndex, currentText, isDeleting, phrases, typingSpeed, deletingSpeed, delayBetweenPhrases]);
+
+  return currentText;
+}
 
 export function Hero() {
   const { scrollY } = useScroll();
@@ -9,12 +48,15 @@ export function Hero() {
   const xMove = useTransform(scrollY, [0, 400], ["0%", "12%"]);
 
   const focusAreas = [
-    "#1 Full Stack Developer",
-    "#2 Flutter Developer",
-    "#3 UI/UX Designer",
-    "#4 Spring Boot Backend Developer",
-    "#5 React Native Mobile App Developer",
+    "Software Developer",
+    "Figma Designer",
+    "Flutter Developer",
+    "UI/UX Designer",
+    "Java Developer",
+    "Mobile App Developer",
   ];
+
+  const animatedText = useTypingEffect(focusAreas);
 
   return (
     <div className="relative min-h-screen flex items-center overflow-hidden">
@@ -56,10 +98,11 @@ export function Hero() {
             <h1
               className="text-white mb-8"
               style={{
-                fontSize: "clamp(3rem, 8vw, 7rem)",
+                fontSize: "clamp(2.5rem, 6vw, 6rem)",
                 lineHeight: "1.1",
                 fontWeight: "700",
                 letterSpacing: "-0.02em",
+                overflowWrap: "break-word",
               }}
             >
               Hey, I'm a{" "}
@@ -71,7 +114,7 @@ export function Hero() {
                   backgroundClip: "text",
                 }}
               >
-                Software Developer
+                {animatedText}
               </span>
             </h1>
 
@@ -99,12 +142,24 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="lg:pl-12"
           >
-            <p
-              className="text-white/90"
-              style={{ fontSize: "1.5rem", lineHeight: "1.6", fontWeight: "400" }}
-            >
-              From concept to deployment, I build stable, scalable applications with clean design and solid engineering.
-            </p>
+            <motion.p
+                className="text-white/90"
+                style={{ fontSize: "1.5rem", lineHeight: "1.6", fontWeight: "400", fontFamily: "'Georgia', 'Times New Roman', Times, serif, cursive" }}
+              >
+                {"From concept to deployment, I build stable, scalable applications with clean design and solid engineering."
+                  .split(" ")
+                  .map((word, i) => (
+                    <motion.span
+                      key={word + i}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 1.2, delay: i * 0.05 + 0.5 }}
+                      style={{ display: "inline-block", marginRight: "0.25em" }}
+                    >
+                      {word}
+                    </motion.span>
+                  ))}
+              </motion.p>
           </motion.div>
         </div>
       </div>
