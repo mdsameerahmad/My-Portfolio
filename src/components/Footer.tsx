@@ -1,5 +1,6 @@
+import { Github, Linkedin, Mail, MessageCircle } from "lucide-react";
 import { motion } from "motion/react";
-import { Github, Linkedin, Instagram, Mail, MessageCircle } from "lucide-react";
+import bgImage from "../assets/bg.png";
 
 export function Footer() {
   const socialLinks = [
@@ -10,7 +11,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="w-full py-16 bg-black border-t border-white/10" style={{ backgroundImage: "url('/src/assets/bg.png')", backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}>
+    <footer className="w-full py-16 bg-black border-t border-white/10" style={{ backgroundImage: `url(${bgImage})`, backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

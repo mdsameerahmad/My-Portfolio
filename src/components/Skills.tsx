@@ -1,26 +1,26 @@
 "use client";
-import { motion } from "motion/react";
 import {
+  BookOpen,
+  Brain,
+  Cloud,
   Code,
   Coffee,
-  FileCode,
-  Database,
-  Layers,
-  ShieldCheck,
-  Zap,
-  Users,
-  Lightbulb,
-  Brain,
-  Rocket,
-  MessageSquare,
-  Cloud,
-  Figma,
-  Palette,
-  BookOpen,
-  Globe,
   Cpu,
+  Database,
+  Figma,
+  FileCode,
+  Globe,
+  Layers,
+  Lightbulb,
+  MessageSquare,
+  Palette,
+  Rocket,
   Server,
+  ShieldCheck,
+  Zap
 } from "lucide-react";
+import { motion } from "motion/react";
+import bgImage from "../assets/bg.png";
 
 export function Skills() {
   const skillCategories = [
@@ -76,7 +76,7 @@ export function Skills() {
   ];
 
   // ===== Custom SVG Icons =====
-  function LeafIcon(props) {
+  function LeafIcon(props: React.SVGProps<SVGSVGElement>) {
     return (
       <svg
         {...props}
@@ -94,7 +94,7 @@ export function Skills() {
     );
   }
 
-  function FlameIcon(props) {
+  function FlameIcon(props: React.SVGProps<SVGSVGElement>) {
     return (
       <svg
         {...props}
@@ -111,7 +111,7 @@ export function Skills() {
     );
   }
 
-  function WindIcon(props) {
+  function WindIcon(props: React.SVGProps<SVGSVGElement>) {
     return (
       <svg
         {...props}
@@ -130,7 +130,7 @@ export function Skills() {
     );
   }
 
-  function SmartphoneIcon(props) {
+  function SmartphoneIcon(props: React.SVGProps<SVGSVGElement>) {
     return (
       <svg
         {...props}
@@ -146,7 +146,7 @@ export function Skills() {
     );
   }
 
-  function TerminalIcon(props) {
+  function TerminalIcon(props: React.SVGProps<SVGSVGElement>) {
     return (
       <svg
         {...props}
@@ -167,7 +167,7 @@ export function Skills() {
     <div
       className="relative min-h-screen pt-32 pb-24 bg-cover bg-center bg-no-repeat"
       style={{
-        backgroundImage: "url('/src/assets/bg.png')", // ✅ Path from public folder
+        backgroundImage: `url(${bgImage})`,
       }}
     >
       {/* Overlay for better contrast */}

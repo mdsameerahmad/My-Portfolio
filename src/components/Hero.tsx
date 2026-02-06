@@ -14,7 +14,7 @@ function useTypingEffect(
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    let timer: NodeJS.Timeout;
+    let timer: ReturnType<typeof setTimeout>;
 
     const handleTyping = () => {
       const fullText = phrases[currentPhraseIndex];
@@ -144,7 +144,12 @@ export function Hero() {
           >
             <motion.p
                 className="text-white/90"
-                style={{ fontSize: "1.5rem", lineHeight: "1.6", fontWeight: "400", fontFamily: "'Georgia', 'Times New Roman', Times, serif, cursive" }}
+                style={{ 
+                  fontSize: "1.5rem", 
+                  lineHeight: "1.6", 
+                  fontWeight: "400", 
+                  fontFamily: "'Roboto Flex', sans-serif" 
+                }}
               >
                 {"From concept to deployment, I build stable, scalable applications with clean design and solid engineering."
                   .split(" ")
@@ -160,6 +165,26 @@ export function Hero() {
                     </motion.span>
                   ))}
               </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.5 }}
+              className="mt-6"
+            >
+              <span
+                style={{
+                  fontSize: "2rem",
+                  fontWeight: "700",
+                  background: "linear-gradient(135deg, #FF6A00 0%, #FF8C3A 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                  display: "inline-block"
+                }}
+              >
+                Md Sameer Ahmad
+              </span>
+            </motion.div>
           </motion.div>
         </div>
       </div>

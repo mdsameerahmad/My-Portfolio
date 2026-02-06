@@ -1,7 +1,8 @@
 import { Send } from "lucide-react";
 import { motion } from "motion/react";
 import { useState } from "react";
-import { toast } from "sonner@2.0.3";
+import { toast } from "sonner";
+import bgImage from "../assets/bg.png";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
@@ -57,7 +58,7 @@ ${formData.message}
   return (
     <div 
       className="min-h-screen bg-[#0A0A0A] pt-32 pb-24"
-      style={{ backgroundImage: "url('/src/assets/bg.png')", backgroundSize: "cover", backgroundPosition: "center" }}
+      style={{ backgroundImage: `url(${bgImage})`, backgroundSize: "cover", backgroundPosition: "center" }}
     >
       <div className="max-w-4xl mx-auto px-6 lg:px-12">
         {/* Header */}

@@ -10,6 +10,7 @@ export function Navbar() {
     { name: "Home", id: "home" },
     { name: "Skills", id: "skills" },
     { name: "Projects", id: "projects" },
+    { name: "About", id: "about" },
     { name: "Contact Me", id: "contact" }
   ];
 
