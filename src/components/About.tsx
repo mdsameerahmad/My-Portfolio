@@ -1,4 +1,4 @@
-import { Download } from "lucide-react";
+import { FileUser } from "lucide-react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import bgImage from "../assets/bg.png";
@@ -92,13 +92,13 @@ export function About() {
               With over 1 year of experience working on various freelance projects and live applications, I've developed a strong foundation in software development and UI/UX design. I specialize in creating stable, scalable applications that bridge the gap between complex engineering and user-friendly design.
             </p>
             <div className="flex flex-wrap gap-4 mt-8">
-              <a href={cvFile} download="Md_Sameer_Ahmad_CV.pdf">
+              <a href={cvFile} target="_blank" rel="noopener noreferrer">
                 <Button 
                   className="bg-[#FF6A00] hover:bg-[#FF8C3A] text-white border-none px-8 py-6"
                   style={{ fontSize: "1rem", fontWeight: "600" }}
                 >
-                  <Download className="mr-2 h-5 w-5" />
-                  Download CV
+                  <FileUser className="mr-2 h-5 w-5" />
+                  View CV
                 </Button>
               </a>
             </div>
