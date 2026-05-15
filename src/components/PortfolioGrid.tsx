@@ -1,9 +1,9 @@
 import { ExternalLink, Github } from "lucide-react";
 import { motion } from "motion/react";
 
+import aiImg from "@/assets/ai.png";
 import bgImg from "@/assets/bg.png";
 import chatBotImg from "@/assets/chatbot.png";
-import ecommImg from "@/assets/ecomm.png";
 import madarsaImg from "@/assets/madarsa.png";
 import mlmImg from "@/assets/mlm.png";
 import referImg from "@/assets/refer.png";
@@ -13,11 +13,11 @@ export function PortfolioGrid() {
   const projects = [
     {
       id: 1,
-      title: "Flutter X SpringBoot",
-      category: "AI-Integrated Multi-Vendor E-Commerce App",
-      image: ecommImg,
-      websiteLink: "https://github.com/mdsameerahmad/E-commerce-App/tree/main",
-      githubLink: "https://github.com/mdsameerahmad/E-commerce-App/tree/main",
+      title: "Flutter X Python",
+      category: "AI-Driven Decision Intelligence Platform",
+      image: aiImg,
+      websiteLink: "https://ai-decision-app-frontend.web.app/",
+      githubLink: "https://github.com/mdsameerahmad/AI-Decision-Intelligence",
     },
     {
       id: 2,

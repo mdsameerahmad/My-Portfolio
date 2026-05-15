@@ -2,7 +2,7 @@ import { FileUser } from "lucide-react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import bgImage from "../assets/bg.png";
-import cvFile from "../assets/cv.pdf";
+import cvFile from "../assets/resume.pdf";
 import { Button } from "./ui/button";
 
 export function About() {
