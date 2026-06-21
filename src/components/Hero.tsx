@@ -57,10 +57,12 @@ export function Hero() {
           <span>What I do</span>
           <p>Mobile apps, clean interfaces, and launch-ready product engineering.</p>
         </div>
-        <a className="round-link" href="https://wa.me/919155649575" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-          <MessageCircle size={20} />
-        </a>
-        <a className="scroll-cue" href="#skills"><ArrowDownRight size={20} /> explore</a>
+        <div className="hero-bottom-actions">
+          <a className="round-link" href="https://wa.me/919155649575" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+            <MessageCircle size={20} />
+          </a>
+          <a className="scroll-cue" href="#skills"><ArrowDownRight size={20} /> explore</a>
+        </div>
       </div>
     </main>
   );

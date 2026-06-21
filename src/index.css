@@ -2271,7 +2271,8 @@ body {
   text-transform: uppercase;
 }
 .round-link, .scroll-cue { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--sage); font-weight: 700; }
-.round-link { width: 3.2rem; height: 3.2rem; border-radius: 50%; justify-content: center; background: var(--sage); color: #fff; }
+.round-link { width: 3.2rem; height: 3.2rem; border-radius: 50%; justify-content: center; background: var(--sage); color: #fff; flex-shrink: 0; }
+.hero-bottom-actions { display: contents; }
 
 .stats-strip {
   display: grid;
