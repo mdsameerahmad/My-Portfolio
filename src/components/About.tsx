@@ -1,110 +1,45 @@
-import { FileUser } from "lucide-react";
-import { motion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
-import bgImage from "../assets/bg.png";
+import { ArrowUpRight, FileUser } from "lucide-react";
+import { motion } from "motion/react";
 import cvFile from "../assets/resume.pdf";
-import { Button } from "./ui/button";
 
 export function About() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  });
-
-  const yLeft = useTransform(scrollYProgress, [0, 1], [100, -100]);
-  const yRight = useTransform(scrollYProgress, [0, 1], [150, -150]);
+  const timeline = [
+    { year: "2024", title: "Foundation", text: "Built strong fundamentals in Java, programming logic, DBMS, and web basics." },
+    { year: "2025", title: "Live projects", text: "Started shipping freelance and real-world apps with React, Flutter, Firebase, and APIs." },
+    { year: "2026", title: "Product polish", text: "Focused on UI/UX, scalable project structure, and reliable deployment workflows." },
+  ];
 
   return (
-    <div 
-      id="about" 
-      ref={containerRef} 
-      className="relative w-full py-24 bg-[#0A0A0A] overflow-hidden bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: `url(${bgImage})` }}
-    >
-      {/* Dark overlay for consistency with other sections */}
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]"></div>
+    <section id="about" className="about-section section-pad">
+      <div className="about-grid">
+        <motion.div className="about-title" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+          <div className="section-kicker"><span> 05</span> about</div>
+          <h2>Final year ECE student and aspiring <em>developer.</em></h2>
+          <a className="btn btn-primary" href={cvFile} target="_blank" rel="noopener noreferrer">
+            View CV <FileUser size={17} />
+          </a>
+        </motion.div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          {/* Left side - Title */}
-          <motion.div
-            style={{ y: yLeft }}
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 
-              className="text-white"
-              style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", lineHeight: "1.2", fontWeight: "700", letterSpacing: "-0.02em" }}
-            >
-              About Me
-            </h2>
-            <span
-              style={{
-                fontSize: "1.25rem",
-                fontWeight: "600",
-                color: "#FF6A00",
-                textTransform: "uppercase",
-                letterSpacing: "0.1em",
-                marginTop: "1rem",
-                display: "block"
-              }}
-            >
-              Md Sameer Ahmad
-            </span>
-            <h3 
-              className="mt-4"
-              style={{ 
-                fontSize: "clamp(1.5rem, 3vw, 2.5rem)", 
-                lineHeight: "1.3", 
-                fontWeight: "700",
-                background: "linear-gradient(135deg, #FF6A00 0%, #FF8C3A 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text"
-              }}
-            >
-              3rd Year ECE Student & Aspiring Developer
-            </h3>
-          </motion.div>
-
-          {/* Right side - Description and CTA */}
-          <motion.div
-            style={{ y: yRight }}
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
-            <p 
-              className="text-[#B3B3B3]"
-              style={{ fontSize: "1.125rem", lineHeight: "1.8", fontWeight: "400", fontFamily: "'Roboto Flex', sans-serif" }}
-            >
-              I am a passionate Electronics and Communication Engineering student currently in my 3rd year. My journey in technology has been driven by a curiosity to understand how things work and a desire to build impactful digital solutions.
-            </p>
-            <p 
-              className="text-[#B3B3B3]"
-              style={{ fontSize: "1.125rem", lineHeight: "1.8", fontWeight: "400", fontFamily: "'Roboto Flex', sans-serif" }}
-            >
-              With over 1 year of experience working on various freelance projects and live applications, I've developed a strong foundation in software development and UI/UX design. I specialize in creating stable, scalable applications that bridge the gap between complex engineering and user-friendly design.
-            </p>
-            <div className="flex flex-wrap gap-4 mt-8">
-              <a href={cvFile} target="_blank" rel="noopener noreferrer">
-                <Button 
-                  className="bg-[#FF6A00] hover:bg-[#FF8C3A] text-white border-none px-8 py-6"
-                  style={{ fontSize: "1rem", fontWeight: "600" }}
-                >
-                  <FileUser className="mr-2 h-5 w-5" />
-                  View CV
-                </Button>
-              </a>
-            </div>
-          </motion.div>
-        </div>
+        <motion.div className="about-copy" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.12 }}>
+          <p>
+            I am Md Sameer Ahmad, a passionate Electronics and Communication Engineering student currently in my final year. My journey in technology is driven by curiosity, practical problem solving, and a desire to build useful digital solutions.
+          </p>
+          <p>
+            With over 1 year of experience working on freelance projects and live applications, I have developed a strong foundation in software development and UI/UX design. I specialize in creating stable, scalable applications that connect clean engineering with user-friendly design.
+          </p>
+          <div className="timeline-list">
+            {timeline.map((item) => (
+              <article key={item.year}>
+                <span>{item.year}</span>
+                <div>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
 }
