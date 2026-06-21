@@ -15,6 +15,13 @@ export function Navbar() {
   ];
 
   useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
+
+  useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 130;
 
@@ -44,12 +51,21 @@ export function Navbar() {
 
   return (
     <nav className="nav-wrap">
+      {isMenuOpen && (
+        <button
+          type="button"
+          className="mobile-nav-backdrop"
+          onClick={() => setIsMenuOpen(false)}
+          aria-label="Close navigation menu"
+        />
+      )}
+
       <button className="brand-mark" onClick={() => scrollToSection("home")}>
         <span className="brand-main">sameer.</span>
         <span className="brand-sub">portfolio system</span>
       </button>
 
-      <div className="nav-pill">
+      <div className={`nav-pill${isMenuOpen ? " is-open" : ""}`}>
         <div className="nav-inner">
           <div className="desktop-menu">
             {navItems.map((item, index) => (
@@ -81,12 +97,18 @@ export function Navbar() {
         </div>
 
         {isMenuOpen && (
-          <motion.div initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} className="mobile-menu">
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            transition={{ duration: 0.22, ease: "easeOut" }}
+            className="mobile-menu"
+          >
             {navItems.map((item) => (
               <button
                 key={item.id}
+                type="button"
                 onClick={() => scrollToSection(item.id)}
-                className={`mobile-link ${activeSection === item.id ? "is-active" : ""}`}
+                className={`mobile-link${activeSection === item.id ? " is-active" : ""}`}
               >
                 {item.name}
               </button>

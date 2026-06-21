@@ -63,20 +63,86 @@ img {
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
+    transition: border-radius 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
+  }
+
+  .nav-pill.is-open {
+    position: relative;
+    z-index: 1;
+    border-radius: 1.15rem !important;
+    background: #faf7ef !important;
+    backdrop-filter: none !important;
+    box-shadow: 0 22px 56px rgba(7, 17, 13, 0.16) !important;
+    overflow: hidden;
+  }
+
+  .mobile-nav-backdrop {
+    display: block !important;
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background: rgba(7, 17, 13, 0.42);
+    backdrop-filter: blur(3px);
+    cursor: pointer;
   }
 
   .nav-inner {
     width: 100%;
     justify-content: space-between;
+    padding: 0.45rem 0.55rem !important;
+    gap: 0.5rem !important;
+  }
+
+  .mobile-toggle {
+    order: -1;
+    margin-right: auto;
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-cta {
+    margin-left: 0 !important;
+    flex-shrink: 0;
+    min-height: 2.75rem;
+    padding: 0.65rem 0.95rem !important;
+    font-size: 0.82rem !important;
+  }
+
+  .mobile-menu {
+    display: flex !important;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 0.55rem 0.65rem 0.85rem !important;
+    border-top: 1px solid var(--line);
+    background: #faf7ef;
+  }
+
+  .mobile-link {
+    width: 100% !important;
+    border-radius: 0.75rem !important;
+    padding: 0.85rem 1rem !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    text-align: left;
+  }
+
+  .mobile-link.is-active {
+    background: var(--sage-pale) !important;
+    color: var(--ink) !important;
+  }
+
+  .mobile-link:active {
+    background: rgba(63, 119, 93, 0.14);
   }
 
   .desktop-menu {
     display: none !important;
-  }
-
-  .mobile-toggle,
-  .mobile-menu {
-    display: block !important;
   }
 
   .hero-section {
